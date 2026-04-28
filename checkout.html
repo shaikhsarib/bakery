@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Checkout — Maharashtra Bakery | Maharashtra, India</title>
+  <meta name="description"
+    content="Secure checkout for Maharashtra Bakery in Maharashtra, India. Fresh baked cookies delivered across Pune, Mumbai, Nashik and all of India." />
+  <meta property="og:title" content="Maharashtra Bakery — Premium Artisan Cookies" />
+  <meta property="og:description"
+    content="Fresh-baked Australian cookies, 50+ varieties. Real ingredients, delivered to your door." />
+  <meta property="og:image" content="assets/images/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Maharashtra Bakery — Premium Artisan Cookies" />
+  <meta name="twitter:description"
+    content="Fresh-baked Australian cookies, 50+ varieties. Real ingredients, delivered to your door." />
+  <meta name="twitter:image" content="assets/images/logo.png" />
+  <meta name="twitter:image:width" content="1200" />
+  <meta name="twitter:image:height" content="630" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .removing-cart-item {
+      opacity: 0;
+      transform: translateX(15px);
+      transition: opacity .22s ease, transform .22s ease;
+    }
+
+    .remove-btn svg {
+      display: inline-block;
+      min-width: 14px;
+      min-height: 14px;
+    }
+
+    #orderConfirmationScreen.order-confirmation-screen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #orderConfirmationScreen.order-confirmation-screen.hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="min-h-screen bg-brand-bg">
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-2 bg-transparent">
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+        <a class="flex items-center gap-2.5 flex-shrink-0 group" href="index.html">
+          <div class="flex items-center transition-transform group-hover:scale-105">
+            <img alt="Logo" width="36" height="36" class="flex-shrink-0" style="color: transparent"
+              src="assets/images/logo.png" />
+          </div>
+          <span
+            class="font-display font-semibold text-lg text-brand-foreground tracking-tight hidden sm:block">Maharashtra
+            Bakery</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-1">
+          <a class="px-4 py-2 text-sm font-medium text-brand-muted hover:text-primary transition-colors rounded-lg hover:bg-brand-surface"
+            href="collections.html">Collections</a>
+
+        </nav>
+        <div class="flex items-center gap-2">
+          <button
+            class="hidden sm:flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-brand-muted hover:text-primary transition-colors rounded-lg hover:bg-brand-surface"
+            aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" aria-hidden="true" width="18" height="18" class=" ">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path>
+            </svg>
+          </button>
+          <a class="relative flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-brand-muted hover:text-primary transition-colors rounded-lg hover:bg-brand-surface"
+            aria-label="Cart with 2 items" href="checkout.html">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" aria-hidden="true" width="20" height="20" class=" ">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z">
+              </path>
+            </svg>
+            <span
+              class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center">2</span>
+          </a>
+          <a class="hidden sm:flex btn-primary items-center gap-1.5 px-5 py-2.5 text-sm font-bold rounded-xl text-white"
+            href="checkout.html">Order Now</a>
+          <button
+            class="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-brand-surface transition-colors"
+            aria-label="Open menu" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" aria-hidden="true" width="22" height="22" class="text-brand-foreground">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5">
+              </path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="backdrop hidden fixed inset-0 z-40 bg-brand-dark/40 backdrop-blur-sm lg:hidden"></div>
+    <div
+      class="mobile-menu hidden fixed top-0 right-0 bottom-0 w-72 z-50 bg-brand-bg shadow-float lg:hidden flex flex-col">
+      <div class="flex items-center justify-between p-5 border-b border-brand-border">
+        <div class="flex items-center gap-2">
+          <div class="flex items-center">
+            <img alt="Logo" width="32" height="32" class="flex-shrink-0" style="color: transparent"
+              src="assets/images/logo.png" />
+          </div>
+          <span class="font-display font-semibold text-base text-brand-foreground">Maharashtra Bakery</span>
+        </div>
+        <button class="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-brand-surface transition-colors"
+          aria-label="Close menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" aria-hidden="true" width="20" height="20" class="text-brand-muted">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <nav class="flex-1 p-5 space-y-1">
+        <a class="flex items-center gap-3 px-4 py-3.5 text-base font-medium text-brand-muted hover:text-primary hover:bg-brand-surface rounded-xl transition-colors min-h-[44px]"
+          href="collections.html">Collections</a>
+
+      </nav>
+      <div class="p-5 border-t border-brand-border space-y-3">
+        <a class="btn-primary flex items-center justify-center gap-2 w-full py-3.5 text-sm font-bold rounded-xl text-white"
+          href="checkout.html">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" aria-hidden="true" width="18" height="18" class=" ">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z">
+            </path>
+          </svg>View Cart (2)</a>
+      </div>
+    </div>
+    <main class="pt-20">
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div class="flex items-center justify-center gap-0 mb-8">
+          <div class="flex flex-col items-center gap-1.5">
+            <div
+              class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-all bg-primary text-white animate-pulse-ring">
+              1
+            </div>
+            <span class="text-[13px] font-semibold transition-colors hidden sm:block text-primary">Cart Review</span>
+          </div>
+          <div class="w-16 sm:w-24 h-0.5 mx-2 mb-5 transition-colors bg-brand-border"></div>
+          <div class="flex flex-col items-center gap-1.5">
+            <div
+              class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-all bg-brand-surface text-brand-subtle border border-brand-border">
+              2
+            </div>
+            <span class="text-[13px] font-semibold transition-colors hidden sm:block text-brand-subtle">Delivery
+              Details</span>
+          </div>
+          <div class="w-16 sm:w-24 h-0.5 mx-2 mb-5 transition-colors bg-brand-border"></div>
+          <div class="flex flex-col items-center gap-1.5">
+            <div
+              class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-all bg-brand-surface text-brand-subtle border border-brand-border">
+              3
+            </div>
+            <span class="text-[13px] font-semibold transition-colors hidden sm:block text-brand-subtle">Payment</span>
+          </div>
+        </div>
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div class="lg:col-span-7">
+            <div class="bg-white rounded-4xl border border-brand-border shadow-card p-6 sm:p-8">
+              <div class="space-y-5">
+                <h2 class="font-display text-xl font-semibold text-brand-foreground">
+                  Your Cart
+                </h2>
+                <div class="space-y-4" data-cart-items>
+                  <div class="flex gap-4 bg-white rounded-3xl p-4 border border-brand-border shadow-card">
+                    <div
+                      class="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-brand-surface border border-brand-border-light">
+                      <img alt="Almond Fingers cookies pack 250g" loading="lazy" width="80" height="80"
+                        class="w-full h-full object-cover bg-gray-200" style="color: transparent"
+                        src="https://img.rocket.new/generatedImages/rocket_gen_img_1a6d489c5-1776011036028.png" />
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <p class="text-sm font-semibold text-brand-foreground leading-snug">
+                        Almond Fingers
+                      </p>
+                      <p class="text-xs text-brand-subtle mt-0.5">250g</p>
+                      <div class="flex items-center justify-between mt-3">
+                        <div class="flex items-center gap-0 border border-brand-border rounded-xl overflow-hidden">
+                          <button class="qty-btn w-9 h-9 flex items-center justify-center text-brand-muted"
+                            aria-label="Decrease">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" aria-hidden="true" width="14" height="14" class=" ">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14"></path>
+                            </svg>
+                          </button>
+                          <span
+                            class="w-9 h-9 flex items-center justify-center text-sm font-bold text-brand-foreground border-x border-brand-border">2</span>
+                          <button class="qty-btn w-9 h-9 flex items-center justify-center text-brand-muted"
+                            aria-label="Increase">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" aria-hidden="true" width="14" height="14" class=" ">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
+                            </svg>
+                          </button>
+                        </div>
+                        <p class="text-base font-bold text-brand-foreground">
+                          ₹790
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex gap-4 bg-white rounded-3xl p-4 border border-brand-border shadow-card">
+                    <div
+                      class="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-brand-surface border border-brand-border-light">
+                      <img alt="Festive Cookie Gift Tin 500g" loading="lazy" width="80" height="80"
+                        class="w-full h-full object-cover bg-gray-200" style="color: transparent"
+                        src="https://images.unsplash.com/photo-1610897799366-318af40adad8" />
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <p class="text-sm font-semibold text-brand-foreground leading-snug">
+                        Festive Cookie Tin
+                      </p>
+                      <p class="text-xs text-brand-subtle mt-0.5">500g</p>
+                      <div class="flex items-center justify-between mt-3">
+                        <div class="flex items-center gap-0 border border-brand-border rounded-xl overflow-hidden">
+                          <button class="qty-btn w-9 h-9 flex items-center justify-center text-brand-muted"
+                            aria-label="Decrease">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" aria-hidden="true" width="14" height="14" class=" ">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14"></path>
+                            </svg>
+                          </button>
+                          <span
+                            class="w-9 h-9 flex items-center justify-center text-sm font-bold text-brand-foreground border-x border-brand-border">1</span>
+                          <button class="qty-btn w-9 h-9 flex items-center justify-center text-brand-muted"
+                            aria-label="Increase">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" aria-hidden="true" width="14" height="14" class=" ">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
+                            </svg>
+                          </button>
+                        </div>
+                        <p class="text-base font-bold text-brand-foreground">
+                          ₹799
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-2">
+                  <input type="text" placeholder="Promo code" class="form-input flex-1" aria-label="Promo code" />
+                  <button class="btn-secondary px-5 py-3 text-sm font-bold rounded-xl flex-shrink-0 min-h-[44px]">
+                    Apply
+                  </button>
+                </div>
+                <div class="bg-white rounded-3xl p-5 border border-brand-border shadow-card space-y-3">
+                  <div class="flex justify-between text-sm text-brand-muted">
+                    <span>Subtotal</span>
+                    <span class="font-medium text-brand-foreground">₹1,589</span>
+                  </div>
+                  <div class="flex justify-between text-sm text-brand-muted">
+                    <span>Shipping</span>
+                    <span class="font-medium text-success">FREE</span>
+                  </div>
+                  <div class="flex justify-between text-sm text-brand-muted">
+                    <span>GST (5%)</span>
+                    <span class="font-medium text-brand-foreground">₹79</span>
+                  </div>
+                  <div class="h-px bg-brand-border"></div>
+                  <div class="flex justify-between text-base font-bold text-brand-foreground">
+                    <span>Total</span>
+                    <span class="text-primary text-lg">₹1,668</span>
+                  </div>
+                </div>
+                <button id="proceedToDeliveryButton" type="button"
+                  class="btn-primary w-full flex items-center justify-center gap-2 py-4 text-sm font-bold rounded-2xl text-white">
+                  Proceed to Delivery<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" aria-hidden="true" width="16" height="16" class=" ">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5">
+            <div class="bg-white rounded-4xl border border-brand-border shadow-card p-6 space-y-5 lg:sticky lg:top-24">
+              <h3 class="font-display text-lg font-semibold text-brand-foreground">
+                Order Summary
+              </h3>
+              <div class="space-y-4" data-order-summary-items>
+                <div class="flex gap-3 items-center">
+                  <div
+                    class="relative w-14 h-14 rounded-2xl overflow-hidden flex-shrink-0 bg-brand-surface border border-brand-border-light">
+                    <img alt="Almond Fingers cookies pack 250g" loading="lazy" width="56" height="56"
+                      class="w-full h-full object-cover bg-gray-200" style="color: transparent"
+                      src="https://img.rocket.new/generatedImages/rocket_gen_img_1a6d489c5-1776011036028.png" />
+                    <span
+                      class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center">2</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium text-brand-foreground truncate">
+                      Almond Fingers
+                    </p>
+                    <p class="text-xs text-brand-subtle">250g</p>
+                  </div>
+                  <p class="text-sm font-bold text-brand-foreground flex-shrink-0">
+                    ₹790
+                  </p>
+                </div>
+                <div class="flex gap-3 items-center">
+                  <div
+                    class="relative w-14 h-14 rounded-2xl overflow-hidden flex-shrink-0 bg-brand-surface border border-brand-border-light">
+                    <img alt="Festive Cookie Gift Tin 500g" loading="lazy" width="56" height="56"
+                      class="w-full h-full object-cover bg-gray-200" style="color: transparent"
+                      src="https://images.unsplash.com/photo-1610897799366-318af40adad8" />
+                    <span
+                      class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center">1</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium text-brand-foreground truncate">
+                      Festive Cookie Tin
+                    </p>
+                    <p class="text-xs text-brand-subtle">500g</p>
+                  </div>
+                  <p class="text-sm font-bold text-brand-foreground flex-shrink-0">
+                    ₹799
+                  </p>
+                </div>
+              </div>
+              <div class="h-px bg-brand-border"></div>
+              <div class="space-y-2.5">
+                <div class="flex justify-between text-sm text-brand-muted">
+                  <span>Subtotal</span>
+                  <span class="font-medium text-brand-foreground">₹1,589</span>
+                </div>
+                <div class="flex justify-between text-sm text-brand-muted">
+                  <span>Shipping</span>
+                  <span class="font-medium text-success">FREE</span>
+                </div>
+                <div class="flex justify-between text-sm text-brand-muted">
+                  <span>GST (5%)</span>
+                  <span class="font-medium text-brand-foreground">₹79</span>
+                </div>
+                <div class="h-px bg-brand-border"></div>
+                <div class="flex justify-between text-base font-bold text-brand-foreground">
+                  <span>Total</span>
+                  <span class="text-primary">₹1,668</span>
+                </div>
+              </div>
+              <div class="bg-brand-surface rounded-2xl p-3 space-y-2">
+                <p class="text-xs font-semibold text-brand-muted flex items-center gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" aria-hidden="true" width="13" height="13" class="text-primary">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12">
+                    </path>
+                  </svg>You qualify for free shipping!
+                </p>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 100%"></div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 text-xs text-brand-subtle border-t border-brand-border pt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" aria-hidden="true" width="13" height="13" class="text-success flex-shrink-0">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z">
+                  </path>
+                </svg>Secure 256-bit SSL encrypted checkout
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <section class="bg-brand-surface py-10">
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6">
+        <div class="bg-white rounded-4xl border border-brand-border shadow-card p-6 sm:p-8">
+          <h2 class="font-display text-2xl font-semibold text-brand-foreground">
+            Fresh cookies from Maharashtra Bakery in Maharashtra, India
+          </h2>
+          <p class="mt-4 text-sm sm:text-base text-brand-muted leading-relaxed max-w-3xl">
+            Maharashtra Bakery is a bakery based in Maharashtra, India, baking Australian-style cookies with real
+            butter, premium nuts and locally sourced ingredients. Order online now for fast delivery across Mumbai,
+            Pune, Nagpur, Nashik and the entire state of Maharashtra.
+          </p>
+          <ul class="mt-6 space-y-3 text-sm text-brand-foreground">
+            <li>• Same-day dispatch for orders within Maharashtra and quick nationwide delivery.</li>
+            <li>• Secure checkout with contactless delivery and local customer support.</li>
+            <li>• Easy ordering for customers near Maharashtra cities and nearby areas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="orderConfirmationScreen" class="hidden order-confirmation-screen"
+      style="min-height:calc(100vh - 6rem); padding:2rem 1rem;">
+      <div class="bg-white rounded-4xl border border-brand-border shadow-card p-8 text-center max-w-3xl w-full mx-auto"
+        style="margin:0 auto;">
+        <div
+          class="mx-auto mb-6 w-16 h-16 rounded-full bg-success/10 text-success flex items-center justify-center text-3xl font-bold">
+          ✓
+        </div>
+        <h2 class="font-display text-3xl font-semibold text-brand-foreground">
+          Order Confirmed
+        </h2>
+        <p class="mt-4 text-brand-muted">
+          Thank you for placing your order. Your payment will be processed securely.
+        </p>
+        <p class="mt-4 text-lg text-brand-foreground">
+          Your order ID is <span id="orderIdText" class="font-semibold">CM000000</span>
+        </p>
+        <button id="continueShoppingBtn" class="mt-8 btn-primary px-8 py-3 rounded-xl text-white w-full sm:w-auto">
+          Continue Shopping
+        </button>
+      </div>
+    </section>
+    <footer class="border-t border-brand-border bg-brand-bg pt-16 pb-10">
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6">
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8 mb-10">
+          <div class="flex flex-col gap-3 max-w-xs">
+            <a class="flex items-center gap-2.5 group w-fit" href="index.html">
+              <div class="flex items-center transition-transform group-hover:scale-105">
+                <img alt="Logo" width="36" height="36" class="flex-shrink-0" style="color: transparent"
+                  src="assets/images/logo.png" />
+              </div>
+              <span class="font-display font-semibold text-lg text-brand-foreground">Maharashtra Bakery</span>
+            </a>
+            <p class="text-sm text-brand-subtle leading-relaxed">
+              Maharashtra Bakery is based in Maharashtra, India, baking fresh
+              Australian-style cookies with real almonds, butter &amp; love
+              since 2000. Fast delivery to Pune, Mumbai, Nashik, Nagpur and
+              across India.
+            </p>
+            <div class="flex items-center gap-3 mt-1">
+              <a href="checkout#" aria-label="Instagram"
+                class="w-9 h-9 flex items-center justify-center rounded-lg border border-brand-border text-brand-subtle hover:text-primary hover:border-primary transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" aria-hidden="true" width="16" height="16" class=" ">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418">
+                  </path>
+                </svg>
+              </a>
+              <a href="checkout#" aria-label="Twitter"
+                class="w-9 h-9 flex items-center justify-center rounded-lg border border-brand-border text-brand-subtle hover:text-primary hover:border-primary transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" aria-hidden="true" width="16" height="16" class=" ">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z">
+                  </path>
+                </svg>
+              </a>
+              <a href="mailto:customercare@maharashtrabakery.com" aria-label="Email"
+                class="w-9 h-9 flex items-center justify-center rounded-lg border border-brand-border text-brand-subtle hover:text-primary hover:border-primary transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" aria-hidden="true" width="16" height="16" class=" ">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75">
+                  </path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <nav class="flex flex-wrap gap-x-8 gap-y-3 sm:justify-end">
+            <a class="text-sm font-medium text-brand-muted hover:text-primary transition-colors min-h-[44px] flex items-center"
+              href="collections.html">Collections</a>
+            <a class="text-sm font-medium text-brand-muted hover:text-primary transition-colors min-h-[44px] flex items-center"
+              href="product-detail.html">Product Detail</a>
+            <a class="text-sm font-medium text-brand-muted hover:text-primary transition-colors min-h-[44px] flex items-center"
+              href="checkout.html">Checkout</a>
+            <a class="text-sm font-medium text-brand-muted hover:text-primary transition-colors min-h-[44px] flex items-center"
+              href="index.html">Privacy Policy</a>
+            <a class="text-sm font-medium text-brand-muted hover:text-primary transition-colors min-h-[44px] flex items-center"
+              href="index.html">Terms</a>
+          </nav>
+        </div>
+        <div
+          class="pt-6 border-t border-brand-border-light flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <p class="text-[13px] text-brand-subtle">
+            © 2026 Australian Foods India Pvt. Ltd. All rights reserved.
+          </p>
+          <p class="text-[13px] text-brand-subtle">
+            60+ stores across 17 cities · customercare@maharashtrabakery.com
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+
+</html>

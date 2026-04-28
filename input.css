@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #800000;
+  --primary-dark: #5c0000;
+  --primary-light: #a52a2a;
+  --accent: #f5a623;
+  --accent-light: #fbbf24;
+  --accent-dark: #d4890a;
+  --bg: #fdf8f3;
+  --surface: #fff4e6;
+  --surface-2: #fef0d9;
+  --foreground: #1c0f00;
+  --foreground-muted: #6b4226;
+  --foreground-subtle: #a0714f;
+  --dark: #2d1800;
+  --border: #edd9c0;
+  --border-light: #f5e8d8;
+  --success: #2d8a4e;
+  --error: #c0392b;
+}
+
+/* Custom Styles */
+.font-display { font-family: "Fraunces", serif; }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--primary);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+}
+
+.glass {
+  background: rgba(255, 244, 230, 0.75);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(237, 217, 192, 0.6);
+}
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-hidden.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.collection-card.reveal-hidden {
+  opacity: 1;
+  transform: none;
+}
+
+.bg-success {
+  background-color: var(--success);
+}
+
